@@ -12,13 +12,14 @@ $(document).ready(function(){
 		}).done(function(response){
 
 			var objData = response.data;
+			var state = 
 			console.log(objData);
 			for (var i = 0; i < objData.length; i++){
 				var gifDisplay = $('<div class="img-thumbnail">');
 				var rating = objData[i].rating;
 				var p = $('<p>').text("Rating: " + rating);
 				var gifImage = $('<img>');
-				gifImage.attr('src', objData[i].images.fixed_height.url);
+				gifImage.attr('src', objData[i].images.fixed_height_still.url);
 
 				gifDisplay.append(p);
 				gifDisplay.append(gifImage);
