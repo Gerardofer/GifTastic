@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var gifs = ["kramer", "jerry", "elaine", "newman", "anakin", "darth vader", "peralta", "nico", "will", "carleton", "bart", "homer"];
+	var gifs = ["kramer", "jerry", "elaine", "newman", "anakin", "darth vader", "peralta", "nico", "will", "carleton", "bart", "homer", "spiderman", "batman", "ironman", "antman", "wolverin", "storm", "naruto"];
 
 	function displayGif(){
 		var picture = $(this).attr('data-name');
@@ -12,22 +12,39 @@ $(document).ready(function(){
 		}).done(function(response){
 
 			var objData = response.data;
-			var state = 
-			console.log(objData);
-			for (var i = 0; i < objData.length; i++){
-				var gifDisplay = $('<div class="img-thumbnail">');
-				var rating = objData[i].rating;
-				var p = $('<p>').text("Rating: " + rating);
-				var gifImage = $('<img>');
-				gifImage.attr('src', objData[i].images.fixed_height_still.url);
 
-				gifDisplay.append(p);
-				gifDisplay.append(gifImage);
+			console.log(response);
 
-				$('#gif-display').prepend(gifDisplay);
-			}
+			function gifRender(){
+				for (var i = 0; i < objData.length; i++){
+					var gifDisplay = $('<div class="img-thumbnail">');
+					var rating = objData[i].rating;
+					var p = $('<p>').text("Rating: " + rating);
+					var gifImage = $('<img class="gifThumbnail">');
+					gifImage.attr('src', objData[i].images.fixed_height.url)
+					gifImage.attr('data-state', 'still');
 
+					gifDisplay.append(p);
+					gifDisplay.append(gifImage);
+
+					$('#gif-display').prepend(gifDisplay);
+				};
+			};
+
+			gifRender();
+
+				// var state = gifImage.attr('data-state');
+				// if (state === 'still') {
+				// 	$(this).attr('src', objData[i].images.fixed_height.url);
+				// 	gifImage.attr('data-state', 'animate');
+				// }
+				// if (state === 'animate') {
+				// 	$(this).attr('src', objData[i].images.fixed_height_still.url);
+				// 	gifImage.attr('data-state', 'still');
+				
 		});
+
+		// };
 	}
 
 
