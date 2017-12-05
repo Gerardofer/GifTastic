@@ -1,7 +1,15 @@
-h1 {
-	letter-spacing: 3px;
+body {
+	background-color: #F2F2F2;
 }
 
+h1 {
+	letter-spacing: 3px;
+	font-size: 55px;
+}
+
+#rating {
+	font-weight: bold;
+}
 
 #display-buttons {
 	margin-top: 10px;
