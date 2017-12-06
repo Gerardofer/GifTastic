@@ -28,21 +28,18 @@ $(document).ready(function(){
 				gifDisplay.append(gifURL);
 
 				$('#gif-display').prepend(gifDisplay);
-
-				var status = gifURL.attr('data-state');
-
+					
 				gifURL.on('click', function(){
+					var status = gifURL.attr('data-state');
 					if (status === 'still') {
 						$(this).attr('src', $(this).attr('data-animate'));
 						gifURL.attr('data-state', 'animate');
-						console.log("HLLO!")
 					}
 					if (status === 'animate') {
-
 						$(this).attr('src', $(this).attr('data-still'));
 						gifURL.attr('data-state', 'still');
 					}
-				})
+				});
 
 			};
 		});
